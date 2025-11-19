@@ -1,0 +1,49 @@
+{
+  "name": "Your Name",
+  "contact": {
+    "phone": "Your Phone Number",
+    "email": "your.email@example.com",
+    "linkedin": "Your LinkedIn Profile"
+  },
+  "summary": "Your professional summary here. Describe your experience, skills, and what you're looking for.",
+  "skills": [
+    "Python",
+    "Machine Learning",
+    "Data Science"
+  ],
+  "tools": [
+    "PyTorch",
+    "Pandas",
+    "NumPy"
+  ],
+  "languages": [
+    "Python",
+    "JavaScript"
+  ],
+  "spoken_languages": [
+    {
+      "language": "English",
+      "level": "Native"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Your Job Title",
+      "company": "Company Name",
+      "years": 2,
+      "period": "2020-2022",
+      "description": "Describe your role and achievements here.",
+      "keywords": ["Skill1", "Skill2", "Tool1"]
+    }
+  ],
+  "community": [],
+  "education": [
+    {
+      "degree": "Your Degree",
+      "university": "University Name",
+      "period": "2016-2020",
+      "gpa": 85
+    }
+  ]
+}
+

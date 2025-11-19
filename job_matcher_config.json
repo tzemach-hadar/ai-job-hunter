@@ -1,0 +1,18 @@
+{
+    "csv": "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/data-science.csv",
+    "score_threshold": 80,
+    "max_jobs": 5,
+    "resume": "resume.json",
+    "debug": false,
+    "save_html": true,
+    "use_llm": true,
+    "cover_letters": true,
+    "log_file": "logs/job_matcher_YYYYMMDD_HHMMSS.log",
+    "summary_file": "summaries/job_summary.html",
+    "google_api_key_file": "secrets/google_api_key.txt",
+    "gemini_model": "gemini-1.5-flash-latest",
+    "rescan_all_jobs": true,
+    "target_location": "Your City, Your Country",
+    "max_distance_km": 60,
+    "llm_scoring_guide_file": "llm_scoring_guide.txt"
+  }

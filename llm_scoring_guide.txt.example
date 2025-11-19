@@ -1,0 +1,10 @@
+# This guide helps the AI adjust scores based on my personal preferences.
+# Use natural language (English) to list rules.
+#
+# Format: [Rule Type]: [Instruction]
+
+PENALIZE: "Lower the score if the job description strongly prefers or requires a Master's degree."
+PENALIZE: "Slightly lower the score for jobs that seem heavily focused on front-end (React, Angular) rather than backend/data."
+BOOST: "Give a higher score for 'AI Engineer' or 'Data Scientist' roles if I match the core technical skills (like Python, ML), even if I miss some 'soft skills' or 1-2 minor tool requirements."
+IGNORE: "Pay less attention to 'years of experience' requirements if the role is not explicitly 'Senior'."
+

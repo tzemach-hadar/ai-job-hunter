@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+.ENV
+
+# Environment variables and secrets
+.env
+.env.local
+secrets/
+*.key
+*.pem
+
+# User-specific config files
+resume.json
+llm_scoring_guide.txt
+scanned_urls.json
+
+# Generated outputs
+logs/
+log/
+summaries/
+summary/
+cover_letters/
+cover_letter/
+cover_letters_*/
+matched_jobs.json
+matched_jobs*.json
+debug_pages/
+debug/
+debug_*/
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Temporary files
+*.tmp
+*.bak
+*.log
