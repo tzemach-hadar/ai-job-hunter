@@ -48,8 +48,32 @@ This is an **AI-powered job application assistant** that automates the entire jo
    cp llm_scoring_guide.txt.example llm_scoring_guide.txt
    ```
 
-2. **Edit your resume**: Open `resume.json` and fill in your information (skills, experience, education, contact details, etc.).
+2. **Generate your `resume.json`**:
+   Instead of manually editing the JSON file, you can use an LLM to convert your existing CV into the required format effortlessly.
 
+   * Open `resume.json` and copy its content (this will serve as the schema).
+   * Use the prompt below in ChatGPT, Claude, or Gemini along with your current resume (PDF/Text).
+   * Paste the generated JSON output back into `resume.json`.
+
+   <details>
+   <summary>🤖 <b>Click here to copy the Resume Generation Prompt</b></summary>
+
+   ```text
+   Act as an expert Data Parser and Resume Analyst.
+   Your task is to convert the content of the attached resume into a valid JSON object, strictly following the Schema provided below.
+
+   **Strict Guidelines:**
+   1. **Absolute Accuracy:** Extract details exactly as they appear.
+   2. **Full Coverage:** Include ALL information (Experience, Education, Volunteering, Skills).
+   3. **NO Hallucinations:** If a field is missing in the resume, leave it null/empty. Do NOT invent information.
+   4. **Format:** Output only the valid JSON object.
+
+   **The JSON Schema:**
+   [PASTE THE CONTENT OF YOUR EMPTY resume.json HERE]
+
+   **The Resume:**
+   [PASTE YOUR RESUME TEXT OR UPLOAD FILE HERE]
+   
 3. **Configure the application**: Edit `job_matcher_config.json` with your desired settings (see Configuration section below).
 
 4. **Set up API keys**: Create a `secrets/` directory and add your Google Gemini API key:
