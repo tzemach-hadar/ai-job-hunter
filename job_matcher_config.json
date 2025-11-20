@@ -1,7 +1,7 @@
 {
     "csv": "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/data-science.csv",
     "score_threshold": 80,
-    "max_jobs": 5,
+    "max_jobs": 200,
     "resume": "resume.json",
     "debug": false,
     "save_html": true,
@@ -12,7 +12,7 @@
     "google_api_key_file": "secrets/google_api_key.txt",
     "gemini_model": "gemini-1.5-flash-latest",
     "rescan_all_jobs": true,
-    "target_location": "Your City, Your Country",
+    "target_location": "Jerusalem, Israel",
     "max_distance_km": 60,
     "llm_scoring_guide_file": "llm_scoring_guide.txt"
   }

@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, date
 from pathlib import Path
 from typing import List, Optional, Set, Tuple
 
@@ -167,8 +167,7 @@ class JobMatcher:
                     core_skills = ['Python', 'Selenium', 'Web Scraping', 'Data Analysis']
                 
                 requirement_analysis = self.llm.analyze_requirements(requirements, core_skills)
-                if requirement_analysis:
-                    self._print_requirement_analysis_table(requirement_analysis, listing)
+                # Analysis is calculated but not printed to screen
             
             # Extract explanation from score_payload
             explanation = score_payload.get("summary", "")
@@ -238,6 +237,10 @@ class JobMatcher:
         """
         contact = self.resume.get("contact", {})
         skills = self.resume.get("skills", [])
+        
+        # Get candidate name from resume
+        candidate_name = self.resume.get("name", "")
+        
         letter_text = self.llm.generate_cover_letter(
             resume_text=self.resume_text,
             contact=contact,
@@ -246,6 +249,7 @@ class JobMatcher:
             job_description=description,
             location=listing.city,
             skills=skills,
+            candidate_name=candidate_name,
         )
         if not letter_text:
             return None
@@ -257,21 +261,17 @@ class JobMatcher:
         output_path = self.settings.cover_letter_dir / filename
 
         try:
-            # Get candidate name from resume
-            candidate_name = self.resume.get("name", "")
+            # Get current date using datetime.date.today() and format it
+            current_date = date.today().strftime("%B %d, %Y")
             
-            # Get current date in a readable format
-            current_date = datetime.now().strftime("%B %d, %Y")
-            
-            # Build header
+            # Build header with date and company
             header_lines = [
                 current_date,
                 listing.company,
-                candidate_name,
                 "",  # Empty line after header
             ]
             
-            # Add contact information to the letter
+            # Add contact information to the letter (only once at the bottom)
             contact_lines = []
             email = contact.get("email")
             phone = contact.get("phone")
@@ -280,7 +280,7 @@ class JobMatcher:
             if phone:
                 contact_lines.append(f"Phone: {phone}")
             
-            # Write text file with header, letter, and contact info
+            # Write text file with date header, letter body, and contact info at bottom
             full_text = "\n".join(header_lines) + letter_text
             if contact_lines:
                 full_text += "\n\n" + "\n".join(contact_lines)

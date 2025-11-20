@@ -59,7 +59,51 @@ This is an **AI-powered job application assistant** that automates the entire jo
    ```
    Alternatively, you can set the `GEMINI_API_KEY` environment variable.
 
-5. **Run the script**:
+5. **Select CSV file based on your field/experience**: 
+   
+   Browse available job CSV files from the [Techmap repository](https://github.com/mluggy/techmap/tree/main/jobs) and select the one that matches your professional field. Each CSV file contains jobs with various experience levels (Junior, Mid, Senior, Manager, etc.) that will be evaluated against your resume.
+   
+   Available CSV files by category:
+   - `data-science.csv` - Data Science roles
+   - `software.csv` - Software Engineering roles
+   - `frontend.csv` - Frontend Development roles
+   - `devops.csv` - DevOps/Infrastructure roles
+   - `qa.csv` - Quality Assurance roles
+   - `product.csv` - Product Management roles
+   - `design.csv` - Design roles
+   - `security.csv` - Security roles
+   - `hardware.csv` - Hardware Engineering roles
+   - `admin.csv` - Administrative roles
+   - `business.csv` - Business roles
+   - `finance.csv` - Finance roles
+   - `hr.csv` - Human Resources roles
+   - `legal.csv` - Legal roles
+   - `marketing.csv` - Marketing roles
+   - `sales.csv` - Sales roles
+   - `support.csv` - Support roles
+   - And more... (see [full list](https://github.com/mluggy/techmap/tree/main/jobs))
+   
+   **How to select**: Choose the CSV file that matches your primary field. The AI will then evaluate all jobs in that file (across all experience levels) and match them to your resume based on your skills and experience.
+   
+   Once you've selected your CSV file, update `job_matcher_config.json` with the corresponding URL:
+   ```json
+   {
+     "csv": "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/YOUR-SELECTED-FILE.csv",
+     ...
+   }
+   ```
+   
+   **Example**: If you're a Data Scientist looking for roles in data science, use:
+   ```json
+   {
+     "csv": "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/data-science.csv",
+     ...
+   }
+   ```
+   
+   **Note**: The CSV files contain jobs with different experience levels (Junior, Mid, Senior, Manager, Scientist, etc.). The AI will score each job based on how well it matches your resume, regardless of the listed experience level. You can adjust the `score_threshold` in the config to filter for higher-scoring matches.
+
+6. **Run the script**:
    ```bash
    python3 main.py
    ```

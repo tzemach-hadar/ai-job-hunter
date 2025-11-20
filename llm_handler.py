@@ -285,6 +285,7 @@ class GeminiClient:
         job_description: str,
         location: str,
         skills: list[str],
+        candidate_name: str,
     ) -> Optional[str]:
         """
         Generate a tailored cover letter.
@@ -297,12 +298,11 @@ class GeminiClient:
             job_description: Description for the role.
             location: Job location.
             skills: List of candidate's skills (to prevent hallucination).
+            candidate_name: Candidate's full name for signature.
 
         Returns:
             Cover letter string or None on failure.
         """
-        email = contact.get("email", "")
-        phone = contact.get("phone", "")
         skills_str = ", ".join(skills) if skills else "None specified"
         
         prompt = f"""You are a professional cover letter writer. Write a personalized cover letter for the following job application.
@@ -354,20 +354,29 @@ STRICT SYSTEM INSTRUCTIONS - FOLLOW EXACTLY:
    - Use matter-of-fact language, not enthusiastic language.
    - Example phrasing: "My track record demonstrates rapid adaptation to new technologies and tools, which enables me to quickly bridge any gaps in specific tool requirements."
 
-STRUCTURE:
-- Date (use current date format)
+5. FORMATTING REQUIREMENTS - CRITICAL:
+   - DO NOT include a date. The date will be added programmatically.
+   - DO NOT use placeholders like [Current Date] or [Candidate Name].
+   - DO NOT include email address or phone number in your output.
+   - Sign the letter with: "Sincerely,\n{candidate_name}"
+   - Use the exact candidate name provided: "{candidate_name}"
+   - Do NOT use placeholders for the name.
+
+STRUCTURE (what to include):
 - Hiring Manager or Company Name
 - Company Address (if location provided, otherwise omit)
 - Subject line
 - Salutation
 - FIRST PARAGRAPH: Direct statement of interest and key qualifications matching the job
 - SECOND PARAGRAPH: Self-learning ability and adaptability (as specified above)
-- Closing (Sincerely,)
-- Candidate name
-- Email: {email}
-- Phone: {phone}
+- Closing: "Sincerely," followed by the candidate name "{candidate_name}"
 
-Write ONLY the cover letter, no additional commentary."""
+DO NOT include:
+- Date (will be added programmatically)
+- Email address
+- Phone number
+
+Write ONLY the cover letter body and signature, no additional commentary."""
 
         try:
             if self._use_new_api:
