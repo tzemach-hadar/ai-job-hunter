@@ -108,7 +108,7 @@ This is an **AI-powered job application assistant** that automates the entire jo
    - `sales.csv` - Sales roles
    - `support.csv` - Support roles
    - And more... (see [full list](https://github.com/mluggy/techmap/tree/main/jobs))
-  <details>
+  </details>
 
    **How to select**: Choose the CSV file that matches your primary field. The AI will then evaluate all jobs in that file (across all experience levels) and match them to your resume based on your skills and experience.
    
