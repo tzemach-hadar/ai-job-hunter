@@ -73,7 +73,7 @@ This is an **AI-powered job application assistant** that automates the entire jo
 
    **The Resume:**
    [PASTE YOUR RESUME TEXT OR UPLOAD FILE HERE]
-   
+
 3. **Configure the application**: Edit `job_matcher_config.json` with your desired settings (see Configuration section below).
 
 4. **Set up API keys**: Create a `secrets/` directory and add your Google Gemini API key:
@@ -87,7 +87,9 @@ This is an **AI-powered job application assistant** that automates the entire jo
    
    Browse available job CSV files from the [Techmap repository](https://github.com/mluggy/techmap/tree/main/jobs) and select the one that matches your professional field. Each CSV file contains jobs with various experience levels (Junior, Mid, Senior, Manager, etc.) that will be evaluated against your resume.
    
-   Available CSV files by category:
+   <details>
+   <summary>📂 <b>Click here to view available CSV categories</b></summary>
+
    - `data-science.csv` - Data Science roles
    - `software.csv` - Software Engineering roles
    - `frontend.csv` - Frontend Development roles
@@ -106,7 +108,8 @@ This is an **AI-powered job application assistant** that automates the entire jo
    - `sales.csv` - Sales roles
    - `support.csv` - Support roles
    - And more... (see [full list](https://github.com/mluggy/techmap/tree/main/jobs))
-   
+  <details>
+
    **How to select**: Choose the CSV file that matches your primary field. The AI will then evaluate all jobs in that file (across all experience levels) and match them to your resume based on your skills and experience.
    
    Once you've selected your CSV file, update `job_matcher_config.json` with the corresponding URL:
